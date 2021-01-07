@@ -103,7 +103,7 @@ def predict_comments(video_ID):
         }
 
 
-# if __name__ == '__main__'
+# if __name__ == '__main__':
 #     port = int(os.environ.get('PORT', 5000))    # Get PORT in env or set it to 5000
 #     print(f'Server running on port {port}')
 #     app.run(host='0.0.0.0', port=port)
