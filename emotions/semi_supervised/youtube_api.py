@@ -51,7 +51,7 @@ def parse_data(data):
 
 
 
-data = get_youtube_data(video_ID='5Fg9oZk-5uA', max_results=15, order='relevance')
+data = get_youtube_data(video_ID='bs0SWXbty18', max_results=200, order='relevance')
 comments = parse_data(data)
 
 df = pd.DataFrame(data=np.array(comments), columns=['text'])
