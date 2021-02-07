@@ -1,9 +1,10 @@
 *.csv
 *.DS_Store
+*.h5
 __pycache__
 data
 scrape.py
 env.py
 model
-emotions/credentials.py
-emotions/semi_supervised/app/emotion_model_062.h5
+credentials.py
+emotions/semi-supervised/app/emotion_model_062
