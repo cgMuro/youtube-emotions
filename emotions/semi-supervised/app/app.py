@@ -4,6 +4,7 @@ import tensorflow as tf
 import tensorflow_hub as hub
 import tensorflow_text
 from flask import Flask, request, json
+from flask_cors import CORS
 from api import get_youtube_data, parse_data
 
 
@@ -14,6 +15,8 @@ print('Model loaded.')
 
 # Init flask app
 app = Flask(__name__)
+# Enable CORS
+CORS(app)
 
 
 # Make prediction with model
