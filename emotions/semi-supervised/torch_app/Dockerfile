@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY .. ./
 
 # Select entrypoint
-ENTRYPOINT ["gunicorn", "--preload" "'app:app'"]
+ENTRYPOINT ["gunicorn", "app:app"]

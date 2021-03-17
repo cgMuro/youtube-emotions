@@ -1,22 +1,21 @@
 import os
 import numpy as np
 import torch
-from transformers import BertTokenizer
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from flask import Flask, request, json
 from flask_cors import CORS
 from api import get_youtube_data, parse_data
-from model import BertClassifier
 
 
 # Load model
 print('Loading model...')
-model = BertClassifier()
-model.load_state_dict(torch.load('./pretrained/torch_model_75.pt', map_location=torch.device('cpu')))
-model.eval()   # Model in evaluation mode
+model = AutoModelForSequenceClassification.from_pretrained('./pretrained/model')
+model = model.to('cpu') # Move model on CPU
+model.eval()            # Model in evaluation mode
 print('Model loaded.')
 # Load tokenizer
 print('Loading tokenizer...')
-tokenizer = BertTokenizer.from_pretrained('./pretrained/tokenizer', local_files_only=True)
+tokenizer = AutoTokenizer.from_pretrained('./pretrained/tokenizer', local_files_only=True)
 print('Tokenizer loaded.')
 
 
@@ -33,7 +32,7 @@ def make_prediction(input_sentence):
 
     encoded_sentence = tokenizer(input_sentence, truncation=True, padding=True, return_tensors="pt")
     with torch.no_grad():
-        result = np.argmax(model(encoded_sentence.input_ids, encoded_sentence.attention_mask))
+        result = np.argmax(model(encoded_sentence.input_ids, encoded_sentence.attention_mask)[0])
 
     print('Done')
 
