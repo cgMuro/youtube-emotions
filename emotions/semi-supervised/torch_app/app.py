@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import BertTokenizer, AutoModelForSequenceClassification
 from flask import Flask, request, json
 from flask_cors import CORS
 from api import get_youtube_data, parse_data
@@ -15,7 +15,7 @@ model.eval()            # Model in evaluation mode
 print('Model loaded.')
 # Load tokenizer
 print('Loading tokenizer...')
-tokenizer = AutoTokenizer.from_pretrained('./pretrained/tokenizer', local_files_only=True)
+tokenizer = BertTokenizer.from_pretrained('./pretrained/tokenizer')
 print('Tokenizer loaded.')
 
 
