@@ -8,6 +8,7 @@ data
 scrape.py
 env.py
 model
+tokenizer
 credentials.py
 emotions/semi-supervised/app/emotion_model_062
 emotions/semi-supervised/torch_app/pretrained
