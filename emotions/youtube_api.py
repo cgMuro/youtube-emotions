@@ -1,8 +1,6 @@
 # SCRIPT TO GET COMMENTS FROM THE YOUTUBE API
-import os
 import sys
 import requests
-import json
 import numpy as np
 import pandas as pd
 from env import API_KEY
