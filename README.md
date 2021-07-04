@@ -27,8 +27,8 @@ Here I followed the idea explained in this [article](https://towardsdatascience.
 Basically, we use the Twitter API to get the text from tweets based on different hashtags. Then we can label that text with the hashtag that was used in the tweet. For example, I searched for hashtags such as #happy, #advice, #love, and labeled the examples accordingly to the hashtags.
 After building the dataset, I processed the data and coded the model (using a similar architecture as the one from ```polarity```).
 
-### Semi-Supervised
-Since I wasn't satisfied by the results obtained using the methods described above, here I built the dataset from scratch using the YouTube API: I took around 130 examples and labeled them manually.
+<hr>
+Since I wasn't satisfied by the results obtained using the methods described above, I built the dataset from scratch using the YouTube API: I took around 130 examples and labeled them manually.
 
 The classes I chose are: *positive* (joy/happiness/amusement/love), *negative* (anger/hate/disgust), *neutral/other*, *constructive feedback/idea* and *sadness*.
 
