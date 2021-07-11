@@ -2,6 +2,7 @@ import os
 import numpy as np
 import tensorflow as tf
 import tensorflow_hub as hub
+import tensorflow_addons as tfa
 import tensorflow_text
 from flask import Flask, request, json
 from flask_cors import CORS
@@ -10,7 +11,7 @@ from api import get_youtube_data, parse_data
 
 # Load model
 print('Loading model...')
-model = tf.keras.models.load_model('./emotion_model_062.h5')
+model = tf.keras.models.load_model('./emotion_model.h5', custom_objects={ 'auc': tf.keras.metrics.AUC, 'f1': tfa.metrics.F1Score, 'cohenKappa': tfa.metrics.CohenKappa })
 print('Model loaded.')
 
 # Init flask app
